@@ -1,0 +1,20 @@
+{
+	"templates": {
+		"repository": "lowcodeunit-devkit/lcu-cli-templates-core",
+		"scope": "@lowcodeunit-dashboards",
+		"workspace": "lcu-fathym-dashboard"
+	},
+	"config": {
+		"wc": [
+			"wc/lcu-fathym-dashboard.lcu.js"
+		],
+		"solutions": {
+			"config-manager": {
+				"element": "lcu-fathym-dashboard-config-manager-element"
+			}
+		},
+		"elements": {},
+		"data-flow": {},
+		"dependencies": {}
+	}
+}
