@@ -2,7 +2,7 @@ import { Component, OnInit, Injector } from '@angular/core';
 import { LCUElementContext, LcuElementComponent } from '@lcu/common';
 
 export class LcuFathymDashboardConfigManagerElementState {
-  public FathymDashboardUrl: string;
+  public FathymDashboardURL: string;
 }
 
 export class LcuFathymDashboardConfigManagerContext extends LCUElementContext<LcuFathymDashboardConfigManagerElementState> {}
