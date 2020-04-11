@@ -1,50 +1,23 @@
 import { Injectable } from '@angular/core';
 import { LcuModel } from '../models/lcu.model';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LcuService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { 
 
-  public getCardData(): LcuModel[] {
-    return [
-      {
-        LcuId: 1,
-        Content: `A coding standard makes sure that all the developers working on the project are following certain specified guidelines.
-                  The code can be easily understood and a proper consistency is maintained. Consistency has a positive impact on the
-                  quality of the program and one should maintain it while coding. Also, it should be taken care that the guidelines are
-                  homogeneously followed across different levels of the system and they do not contradict each other. The finished program
-                  code should look like that it has been written by a single developer, in a single session.`,
-        Title: 'Angular Style Guide',
-        Subtitle: 'Best Practices for Developers to Follow',
-        Icon: 'done_all',
-        Url: 'https://fathym.visualstudio.com/Documentation/_wiki/wikis/Documentation.wiki/35/Style-Guide-Angular'
-      },
-      {
-        LcuId: 2,
-        Content: `A style guide helps to ensure a continuous brand experience. It means that no matter how, when or where a customer
-                  experiences a brand, they are experiencing the same underlying traits. It’s this consistency across every touch-point
-                  that helps build a brand and brand loyalty. And with 2.4 billion Internet users around the world (and growing), it’s
-                  really more critical than ever for businesses to establish a comprehensive style guide.`,
-        Title: 'Fathym UI/UX Style Guide',
-        Subtitle: `Follow Some of Fathym's Favorite Designs`,
-        Icon: 'palette',
-        Url: 'https://fathym.visualstudio.com/Documentation/_wiki/wikis/Documentation.wiki/37/Style-Guide-Design'
-      },
-      {
-        LcuId: 3,
-        Content: `Fathym’s low-code framework is designed to give developers the freedom and best practice workflows to rapidly create
-                  IoT and data-driven applications that are agnostic to tools, platforms and clouds. Each element of the framework is
-                  built from Low-Code Units (LCUs) – modular building blocks of code that can be as large as an application, or as
-                  small as a data visualization.`,
-        Title: `Fathym's Low-Code Framework`,
-        Subtitle: `Find More Information About Fathym's IoT Solutions`,
-        Icon: 'code',
-        Url: 'https://fathym.com/low-code-framework/'
-      }
-    ];
   }
-  
+
+  private docUrl:string = "https://apihub.document360.io/v1/articles/18bd1c15-ae4d-462f-9adb-837af2edfb07?api_token=Nztkwjz3ep7m/nJEhJkIN9ZzQcZ5kW87Qcf91P0206pe/TvUQ5kRrLpAjCCJlmmh/ZFmsa8LMTE5RQbWqzEeDDaJoKbggKJquBQF6DDsQF/glBL6vyfTfAO7UxJ3drLEn7plNcCxEkgHTgDcI78nPQ==";
+  private reqParams:HttpParams = new HttpParams().set('Content-Type', 'application/json')
+
+  public getData(reqParams?: HttpParams): Observable<HttpResponse<any>> {
+    return this.http.get<any>(this.docUrl, {params:this.reqParams});
+  }
+
 }
