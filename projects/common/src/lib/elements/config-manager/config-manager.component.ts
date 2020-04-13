@@ -30,14 +30,21 @@ export class LcuFathymDashboardConfigManagerElementComponent extends LcuElementC
   //  Life Cycle
   public ngOnInit() {
     super.ngOnInit();
+    
+    // Get the Document360 help article and parse out the vimeo src
     this.dataService.getData().subscribe(
       (data:any)=>{
-        //console.log(data, data.data.html_content);
         let parser = new DOMParser();
         let parsedHtml = parser.parseFromString(data.data.html_content,"text/html");
         let src = parsedHtml.getElementsByTagName("iframe")[0].src;
-        //console.log(src);
-        this.Content = src;
+        
+        // If there's no src, use hard-coded link to vimeo
+        if (src != null) {
+          this.Content = src;
+        }
+        else {
+          this.Content = "https://player.vimeo.com/video/403508452";
+        }
         //this.HtmlContent = data.data.html_content;
       }
     )
