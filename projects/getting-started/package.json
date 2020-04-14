@@ -1,5 +1,5 @@
 {
-	"name": "@lowcodeunit-dashboards/lcu-fathym-dashboard-demo",
+	"name": "@lowcodeunit-dashboards/lcu-fathym-dashboard-getting-started",
 	"version": "0.0.3",
 	"peerDependencies": {
 		"@angular/common": "~8.1.2",

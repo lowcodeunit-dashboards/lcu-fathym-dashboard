@@ -6,6 +6,8 @@ import { LcuService } from './services/lcu.service';
 import { LcuComponent } from './controls/lcu/lcu.component';
 import { LcuDirective } from './directives/lcu.directive';
 import { LcuFathymDashboardConfigManagerElementComponent } from './elements/config-manager/config-manager.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SafePipeModule } from 'safe-pipe';
 
 @NgModule({
   declarations: [LcuComponent, LcuDirective, LcuFathymDashboardConfigManagerElementComponent],
@@ -14,7 +16,9 @@ import { LcuFathymDashboardConfigManagerElementComponent } from './elements/conf
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    SafePipeModule
   ],
   exports: [LcuComponent, LcuDirective, LcuFathymDashboardConfigManagerElementComponent],
   entryComponents: [LcuFathymDashboardConfigManagerElementComponent]
