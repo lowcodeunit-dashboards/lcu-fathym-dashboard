@@ -13,7 +13,7 @@
 		"deploy:common": "npm version patch --prefix projects/common && npm run build:common && npm publish ./dist/common --access public",
 		"deploy:demo": "npm version patch --prefix projects/demo && npm run build:demo && npm publish ./dist/demo --access public",
 		"deploy:getting-started": "npm version patch --prefix projects/getting-started && npm run build:getting-started && npm publish ./dist/getting-started --access public",
-		"deploy:lcu": "npm version patch --prefix projects/lcu && npm run build:lcu && npm publish ./dist/lcu --access public",
+		"deploy:lcu": "npm version patch --prefix projects/lcu && npm run build:lcu && npm publish ./dist/lcu --access public --registry=https://registry.npmjs.org",
 		"ng": "ng",
 		"pack": "npm run pack:lcu",
 		"pack:join": "concat-glob-cli -f \"dist/lcu/wc/lcu.*.js\" -o dist/lcu/wc/lcu-fathym-dashboard.lcu.js",
