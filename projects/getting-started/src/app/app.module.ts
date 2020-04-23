@@ -1,24 +1,29 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { FlexLayoutModule } from '@angular/flex-layout';
-import { AppComponent } from './app.component';
-import { FormComponent } from './controls/form/form.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FathymSharedModule, MaterialModule } from '@lcu/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './controls/home/home.component';
+import { LcuFathymDashboardModule } from '@lowcodeunit-dashboards/lcu-fathym-dashboard-common';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent
+    HomeComponent
   ],
   imports: [
+    AppRoutingModule,
+    BrowserModule,
     BrowserAnimationsModule,
     FathymSharedModule,
     MaterialModule,
-    FormsModule,
-    ReactiveFormsModule
+    FlexLayoutModule,
+    LcuFathymDashboardModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [LcuFathymDashboardModule]
 })
 export class AppModule { }
